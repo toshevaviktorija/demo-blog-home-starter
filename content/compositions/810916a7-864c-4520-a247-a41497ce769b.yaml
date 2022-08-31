@@ -1,0 +1,88 @@
+composition:
+  _id: 810916a7-864c-4520-a247-a41497ce769b
+  type: page
+  _name: Homepage
+  _slug: homepage
+  slots:
+    promo:
+      - _id: 95f04544-9eac-41a5-ac87-6f30d336f3f8
+        type: $personalization
+        slots:
+          pz:
+            - _id: 45139417-bb84-4851-8a7b-b93d54149c58
+              type: callToAction
+              parameters:
+                body:
+                  type: text
+                  value: Get the latest tutorials straight to your inbox.
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit: []
+                    name: call_to_action_newsletter
+                linkUrl:
+                  type: text
+                  value: https://colbyfayock.com/newsletter
+                headline:
+                  type: text
+                  value: Sign up for my newsletter!
+                linkTitle:
+                  type: text
+                  value: Learn More
+            - _id: 262cb0f6-66ca-4540-8383-17afd4fa2248
+              type: callToAction
+              parameters:
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: etsyShop
+                        r: 0
+                        op: '>'
+                    name: call_to_action_etsy
+                linkUrl:
+                  type: text
+                  value: https://etsy.co.uk/
+                headline:
+                  type: text
+                  value: Check out our Etsy Shop
+                linkTitle:
+                  type: text
+                  value: Etsy Shop
+            - _id: ae63c9d7-badf-4dea-b3db-b855451f534d
+              type: callToAction
+              parameters:
+                body:
+                  type: text
+                  value: >-
+                    Don't want to wait for the weekly newsletter? Get live
+                    updates right from Twitter
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: followOnSocialMedia
+                        r: 0
+                        op: '>'
+                    name: call_to_action_social
+                linkUrl:
+                  type: text
+                  value: https://twitter.com/
+                headline:
+                  type: text
+                  value: Get Updates straight from Twitter
+                linkTitle:
+                  type: text
+                  value: 'Follow on twitter '
+        parameters:
+          count:
+            type: number
+            value: '0'
+          trackingEventName:
+            type: text
+            value: Homepage Promo CTA
+  parameters: {}
+created: '2022-08-25T13:18:47.164149+00:00'
+modified: '2022-08-26T11:44:38.687751+00:00'
+pattern: false
+resources: {}

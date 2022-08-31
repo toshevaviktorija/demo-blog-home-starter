@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Head from 'next/head'
-
 import styles from '../styles/Home.module.scss'
-
 import posts from '../data/posts.json';
 
-export default function Home() {
+import { CanvasClient } from '@uniformdev/canvas';
+import { CanvasClComposition, Composition, Slot } from '@uniformdev/canvas-react';
+
+export default function Home({ composition }) {
+  console.log('composition', composition)
   return (
     <div className={styles.container}>
       <Head>
@@ -19,17 +21,26 @@ export default function Home() {
           My Space Jelly Blog
         </h1>
 
-        <div className={styles.signup}>
-          <div className={styles.signupBody}>
-            <h2>Sign up for my newsetter!</h2>
-            <p>Get the latest tutorials straight to your inbox.</p>
-          </div>
-          <div className={styles.signupCta}>
-            <p>
-              <a href="https://colbyfayock.com/newsletter">Learn More</a>
-            </p>
-          </div>
-        </div>
+        <Composition data={composition} resolveRenderer={() => {
+          const DefaultCompoinent = ({ headline, body, linkUrl, linkTitle }) => {
+            return (
+              <div className={styles.signup}>
+                <div className={styles.signupBody}>
+                  <h2>{ headline }</h2>
+                  <p>{ body }</p>
+                </div>
+                <div className={styles.signupCta}>
+                  <p>
+                    <a href={ linkUrl }>{ linkTitle }</a>
+                  </p>
+                </div>
+              </div>
+            )
+          }
+          return DefaultCompoinent;
+        }}>
+          <Slot name="promo" />
+        </Composition>
 
         <ul className={styles.posts}>
           {posts.map(post => {
@@ -52,4 +63,20 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const client = new CanvasClient({
+    apiKey: process.env.UNIFORM_API_KEY,
+    projectId: process.env.UNIFORM_PROJECT_ID
+  })
+  const { composition } = await client.getCompositionBySlug({
+    slug: 'homepage'
+  })
+  return {
+    props: {
+      composition
+    }
+  }
+
 }

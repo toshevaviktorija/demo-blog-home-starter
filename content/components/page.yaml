@@ -1,0 +1,24 @@
+id: page
+name: Page
+permissions: []
+icon: screen
+parameters: []
+useTeamPermissions: true
+slots:
+  - id: promo
+    name: Promo
+    maxComponents: 1
+    minComponents: 0
+    allowedComponents:
+      - callToAction
+      - $personalization
+    inheritAllowedComponents: false
+slugSettings:
+  unique: global
+  required: 'yes'
+  regularExpression: ''
+  regularExpressionMessage: ''
+titleParameter: ''
+canBeComposition: true
+created: '2022-08-22T12:14:27.620591+00:00'
+updated: '2022-08-25T13:18:28.453157+00:00'

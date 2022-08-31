@@ -1,0 +1,65 @@
+{
+  "project": {
+    "pz": {
+      "agg": {
+        "followOnSocialMedia": {
+          "inputs": [
+            {
+              "dim": "isNewsletterSubscriber"
+            }
+          ]
+        },
+        "etsyShop": {
+          "inputs": [
+            {
+              "dim": "etsyCampaign"
+            }
+          ]
+        }
+      },
+      "sig": {
+        "isNewsletterSubscriber": {
+          "str": 50,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "newsletter"
+                },
+                "queryName": "utm_source"
+              }
+            ]
+          }
+        },
+        "etsyCampaign": {
+          "str": 50,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "etsy"
+                },
+                "queryName": "utm_campaign"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "test": {}
+  }
+}

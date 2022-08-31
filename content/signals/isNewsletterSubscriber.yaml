@@ -1,0 +1,16 @@
+id: isNewsletterSubscriber
+name: Is Newsletter Subscriber
+cap: 100
+crit:
+  op: '&'
+  type: G
+  clauses:
+    - type: QS
+      match:
+        cs: false
+        op: '='
+        rhs: newsletter
+      queryName: utm_source
+dur: p
+description: ''
+str: 50

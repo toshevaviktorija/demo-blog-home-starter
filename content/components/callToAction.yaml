@@ -1,0 +1,32 @@
+id: callToAction
+name: Call to Action
+permissions: []
+icon: screen
+parameters:
+  - id: headline
+    name: Headline
+    type: text
+    helpText: ''
+    typeConfig: null
+  - id: body
+    name: Body
+    type: text
+    helpText: ''
+    typeConfig:
+      multiline: true
+  - id: linkUrl
+    name: Link URL
+    type: text
+    helpText: ''
+    typeConfig: null
+  - id: linkTitle
+    name: Link Title
+    type: text
+    helpText: ''
+    typeConfig: null
+useTeamPermissions: true
+slots: []
+titleParameter: ''
+canBeComposition: false
+created: '2022-08-25T13:13:15.109667+00:00'
+updated: '2022-08-25T13:13:15.109667+00:00'
